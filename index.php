@@ -18,8 +18,13 @@ if (isset($_POST['add_expense'])) {
       }
 } 
 
+if ($_SESSION['authorize'] != 1){
+  header("Location: login.php");
+}
+
 require_once("html/header.php");
 require_once("html/main.php");
+require_once("html/footer.php");
 
 // }
 // закрываем подключение
