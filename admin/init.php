@@ -1,4 +1,5 @@
 <?php
+session_set_cookie_params(2592000);
 session_start();
 
 if (!isset($_SESSION['count'])) {
