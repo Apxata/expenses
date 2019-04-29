@@ -2,6 +2,7 @@
 require_once("admin/connection.php");
 require_once("admin/db_function.php");
 require_once("function/expenses.php");
+require_once("admin/init.php");
 
 if (isset($_POST['add_expense'])) {
   
