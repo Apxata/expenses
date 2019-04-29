@@ -86,3 +86,21 @@ function update_balance_sheet_name($id, $balance_sheet_name, $balance_sheet_del)
     $result = query($connection, $sql);
     return $result;
 }
+
+function add_new_balance_sheet($balance_sheet_name, $balance_sheet_del) {
+    global $connection;
+
+    $balance_sheet_name = mysqli_real_escape_string($connection, $balance_sheet_name);
+    $balance_sheet_del = mysqli_real_escape_string($connection, $balance_sheet_del);
+
+    $sql = "INSERT INTO balance_sheet (name, del) VALUES ('$balance_sheet_name', $balance_sheet_del )";
+    $result = query($connection, $sql);
+    return $result;
+
+}
+
+function check_authorization(){
+    if ($_SESSION['authorize'] != 1){
+        header("Location: login.php");
+      }
+}

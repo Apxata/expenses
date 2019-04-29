@@ -1,13 +1,10 @@
 <?php
-require_once("admin/connection.php");
-require_once("admin/db_function.php");
-require_once("function/expenses.php");
 require_once("admin/init.php");
 
 if (isset($_POST["password"])) {
     if ($_POST["simplepswd"] == 198719882016){
       $_SESSION["authorize"] = 1;
-      header("Location: index.php");
+     echo "Вы авторизованы";
     }else{
       echo "Что-то пошло не так";
     }

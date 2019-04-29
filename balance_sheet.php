@@ -1,5 +1,9 @@
 <?php
 require_once("admin/init.php");
+check_authorization();
+require_once(PROJECT_PATH.DS."html".DS."header.php");
+require_once(PROJECT_PATH.DS."html".DS."footer.php");
+
 
 if(isset($_POST["add_new_balance_sheet"])){
     $balance_sheet_name = htmlspecialchars ($_POST['balance_sheet_name']);
@@ -12,4 +16,4 @@ if(isset($_POST["add_new_balance_sheet"])){
     }
 }
 
-require_once("html/balance_sheet.php");
+require_once("html/balance_sheet_htm.php");

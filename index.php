@@ -1,5 +1,7 @@
 <?php
 require_once('admin/init.php');
+check_authorization();
+
 
 if (isset($_POST['add_expense'])) {
 
@@ -14,6 +16,9 @@ if (isset($_POST['add_expense'])) {
       echo "Что-то пошло не так";
       }
 } 
+
+require_once(PROJECT_PATH.DS."html".DS."header.php");
+require_once(PROJECT_PATH.DS."html".DS."footer.php");
 
 // require_once("html/header.php");
 require_once("html/main.php");

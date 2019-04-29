@@ -1,6 +1,6 @@
 <table class="table table-dark">
     <h1> Добавить новую статью баланса</h1>
-    <form action="balance_sheet_sheet.php" method="POST" class="form-inline">
+    <form action="balance_sheet.php" method="POST" class="form-inline">
         <div class="form-group lg-6">
             <label for="inputPassword2" class="sr-only"></label>
             <input type="text" class="form-control" name="balance_sheet_name" id="bs_name">
@@ -16,7 +16,7 @@
             Отключено
         </label>
         </div>
-    <button type="submit" name="add_new_balance_sheet" class="btn btn-primary mb-2">Отредактировать</button>
+    <button type="submit" name="add_new_balance_sheet" class="btn btn-primary mb-2">Добавить</button>
     </form>
             <thead>
                 <tr>

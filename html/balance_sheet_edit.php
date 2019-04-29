@@ -1,5 +1,8 @@
 <?php
 require_once("../admin/init.php");
+check_authorization();
+require_once(PROJECT_PATH.DS."html".DS."header.php");
+require_once(PROJECT_PATH.DS."html".DS."footer.php");
 
 if (isset($_GET['id'])) {
     $id = (int) $_GET['id'];
