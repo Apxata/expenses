@@ -1,4 +1,4 @@
-<body>
+
         <!-- тут пишем сумму  -->
         <form action=index.php method="POST" class="form-inline">
         <div class="form-group">
@@ -10,7 +10,7 @@
             </div>
         </div>
         <!-- делаем запрос и достаем статьи расхода (еда, авто и т.д.) -->
-                <?php $result_array = get_balance_sheets(); ?>
+                <?php $result_array = get_not_del_balance_sheets(); ?>
                 <select class="form-control" name="balance_sheet">
                     <?php foreach($result_array as $item){ ?>
                         <option value="<?php echo $item["id"];  ?>"><?php echo $item["name"]; ?></option>
