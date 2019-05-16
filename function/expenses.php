@@ -44,7 +44,7 @@ function get_all_visible_expenses(){
     global $connection;
 
     $sql ="SELECT expenses.id, balance_id, expense_sum, date_created, comment, 
-             name FROM expenses JOIN (balance_sheet) ON (balance_sheet.id = expenses.balance_id) ORDER BY expenses.id DESC";
+             name FROM expenses JOIN (balance_sheet) ON (balance_sheet.id = expenses.balance_id) WHERE deleted = 0 ORDER BY expenses.id DESC";
     $result = query($connection, $sql);
     return $result_array = fetch_assoc($result);
 }
@@ -59,7 +59,7 @@ function delete_expense_by_id($id){
 
     $id = mysqli_real_escape_string($connection, $id);
 
-    $sql = "DELETE FROM expenses WHERE id = $id";
+    $sql = "UPDATE expenses SET DELETED = 1 WHERE id = $id LIMIT 1";
     $result = query($connection, $sql);
     return $result;
 }
