@@ -2,9 +2,15 @@
 
 function db_connect() {
   $connection = new mysqli(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-  mysqli_set_charset( $connection, 'uft8');
-  //var_dump(mysqli_get_charset($connection));
-  //die();
+  if (!mysqli_set_charset($connection, "utf8")) {
+     var_dump(mysqli_error($connection));
+     die();
+  // } else {
+  //   return mysqli_character_set_name($connection);
+   }
+  //mysqli_set_charset($connection, 'uft8');
+  var_dump(mysqli_get_charset($connection));
+  die();
   confirm_db_connect($connection);
   return $connection;
 }
