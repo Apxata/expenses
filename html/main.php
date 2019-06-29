@@ -31,6 +31,7 @@
                 <th scope="col">Сумма</th>
                 <th scope="col">Статья</th>
                 <th scope="col">Коммент</th>
+                <th scope="col">Ред</th>
                 <th scope="col">Удалить</th>
                 </tr>
             </thead>
@@ -52,6 +53,7 @@
                  </td>
                 <td><?php echo $item["name"]; ?></td>
                 <td><?php echo $item["comment"]; ?></td>
+                <td><a href="update_expense.php?id=<?php echo  $item["id"]; ?>">Ред</a> </td>
                 <td><a href="delete_expense.php?id=<?php echo  $item["id"]; ?>">удалить</a> </td>
                 </tr>
             <?php 

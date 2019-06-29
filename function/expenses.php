@@ -40,6 +40,19 @@ function add_expense($balance_id, $expense_sum, $note){
     return $result;
 }
 
+function get_expense_by_id($id){
+    global $connection;
+
+    $id = mysqli_real_escape_string($connection, $id);
+
+    $sql ="SELECT expenses.id, balance_id, expense_sum, date_created, comment, 
+    name FROM expenses JOIN (balance_sheet) ON (balance_sheet.id = expenses.balance_id) WHERE expenses.id = $id LIMIT 1";
+    $result = query($connection, $sql);
+    $result_array = fetch_assoc($result);
+    return array_shift($result_array);
+}
+
+
 function get_all_visible_expenses(){
     global $connection;
 
@@ -73,6 +86,19 @@ function find_balance_sheet_by_id($id) {
     $result = query($connection, $sql);
     $result_array = fetch_assoc($result);
     return array_shift($result_array);
+}
+
+function update_expense($expense_id, $balance_id, $expense_sum, $comment){
+    global $connection;
+
+    $expense_id = mysqli_real_escape_string($connection, $expense_id);
+    $balance_id = mysqli_real_escape_string($connection, $balance_id);
+    $expense_sum = mysqli_real_escape_string($connection, $expense_sum);
+    $comment = mysqli_real_escape_string($connection, $comment);
+
+    $sql = "UPDATE expenses SET balance_id = $balance_id, expense_sum = $expense_sum, comment = '$comment' WHERE ID =  $expense_id LIMIT 1 ";
+    $result = query($connection, $sql);
+    return $result;
 }
 
 function update_balance_sheet_name($id, $balance_sheet_name, $balance_sheet_del){
